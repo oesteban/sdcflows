@@ -12,11 +12,11 @@ docs_deploy: &docs
         name: Install and configure dependencies
         command: |
           npm install -g --silent gh-pages@2.0.1
-          git config user.email "rosswilsonblair+niworkflows-circleci@gmail.com"
+          git config user.email "crn.poldracklab@gmail.com"
           git config user.name "ci-build"
     - add_ssh_keys:
         fingerprints:
-          - "6b:ba:eb:a8:cb:f7:67:eb:9b:5d:54:91:e8:b3:98:16"
+          - "46:48:1e:6d:00:0e:f2:f8:e5:aa:b9:aa:da:eb:59:4e"
     - run:
         name: Deploy docs to gh-pages branch
         command: gh-pages --dotfiles --message "doc(update) [skip ci]" --dist docs/_build/html
@@ -505,7 +505,7 @@ workflows:
 
       - deploy_docs_master:
           requires:
-            - test_pytest
+            - test_sdcflows
             - test_package
             - build_docs
           filters:
